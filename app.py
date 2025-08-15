@@ -136,6 +136,10 @@ def api_generate():
     return jsonify({"enhanced_prompt": enhanced_prompt, "images": cloud_urls})
 
 # ------------------ Run App ------------------ #
+from waitress import serve
+
 if __name__ == "__main__":
-    app.run(debug=False, port=8880)
+    # Waitress ignores debug mode; use app.debug = True if needed
+    serve(app, host="0.0.0.0", port=8880)
+
 
